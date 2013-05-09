@@ -4,7 +4,7 @@ project(catkin_test)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -60,7 +60,7 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-# include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ## Declare a cpp library
 # add_library(catkin_test
@@ -75,9 +75,9 @@ add_executable(catkin_test src/catkin_test.cpp)
 # add_dependencies(catkin_test_node catkin_test_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(catkin_test_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(catkin_test
+  ${catkin_LIBRARIES}
+  )
 
 #############
 ## Install ##
